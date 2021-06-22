@@ -17,11 +17,10 @@ class CustomerSeeder extends Seeder
     {
         $dataArray = [];
         for ($i = 0; $i < 20; $i++) {
-            $randomInt = rand(1,5);
             array_push($dataArray, [
                 'name' => Str::random(10),
                 'dob' => date("Y-m-d", mt_rand(1, time())),
-                'city_id' => $randomInt,
+                'city_id' => rand(1,5),
                 'email' => Str::random(10).'@gmail.com',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')

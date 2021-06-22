@@ -16,7 +16,7 @@ class CitiesSeeder extends Seeder
     public function run()
     {
         $arr =[];
-        for ($i = 0; $i < 5; $i++){
+        for ($i = 0; $i < 3; $i++){
             array_push($arr,[
                'name' => Str::random(5),
                 'created_at' => date('Y-m-d H:i:s'),

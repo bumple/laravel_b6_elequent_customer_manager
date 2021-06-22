@@ -14,7 +14,7 @@ class AddCitiesToCustomerTable extends Migration
     public function up()
     {
         Schema::table('customer', function (Blueprint $table) {
-            $table->bigInteger('city_id')->after('email')->nullable();
+            $table->unsignedBigInteger('city_id')->after('email')->nullable();
             $table->foreign('city_id')->references('id')->on('cities');
         });
     }

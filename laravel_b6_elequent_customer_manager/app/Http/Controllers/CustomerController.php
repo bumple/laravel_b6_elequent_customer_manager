@@ -13,7 +13,6 @@ class CustomerController extends Controller
     {
         $customers = Customer::all();
         $cities = City::all();
-
         return view('customers.list', compact('customers','cities'));
     }
 
@@ -59,6 +58,16 @@ class CustomerController extends Controller
         Session::flash('success', 'Cập nhật khách hàng thành công');
 
         return redirect()->route('customers.index');
+    }
+
+    public function filterByCity(Request $request){
+        $idCity = $request->input('city_id');
+        $cityFilter = City::findOrFail($idCity);
+        $customers = Customer::where('city_id', $cityFilter->id)->get();
+        $totalCustomerFilter = count($customers);
+        $cities = City::all();
+
+        return view('customers.list', compact('customers', 'cities', 'totalCustomerFilter', 'cityFilter'));
     }
 
 

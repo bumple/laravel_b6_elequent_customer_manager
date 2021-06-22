@@ -13,7 +13,7 @@ class City extends Model
 
     protected function customers(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(Customer::class, 'city_id');
+        return $this->hasMany(Customer::class);
     }
 
     public function create()
